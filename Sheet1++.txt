@@ -257,4 +257,4 @@ ls -i	file or dir name
 80.	How can we get the Swap space available in system?
 (free -h)
 
-learing git
+learning git
