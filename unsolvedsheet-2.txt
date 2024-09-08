@@ -404,7 +404,7 @@ A unit file is a config file used by systemd to manage and control system servic
 134. A Colleague of your's want to see all the processes running on your system, but excluding all the processes that are owned by root. How can you send him this information in file?
 	>ps -aux | grep -v root
 
-Sheet 2 solved
+push
 
 
 
