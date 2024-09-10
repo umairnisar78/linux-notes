@@ -1,0 +1,259 @@
+www.linuxdmz.com
+======================================Evaluation-1==============================================
+http://google.com
+
+1.	What is the difference between su & su -?
+(su is switching to local user; su – is switching to root )
+
+2.	What information we can extract from the uptime command?
+(time and how long the server has been running, users, and load average)
+
+3.	What is the command to list all logged-in users and how long the server has been up?
+(uptime)
+
+4.	What command do we use to get the commands you executed recently?
+(> history)
+
+5.	Do you know how we can execute multiple commands on a terminal?
+(&& and ; sign in between commands, || )
+
+6.	How do you know the status of last command?
+(to run the command >echo $?)
+
+7.	How can we update the time stamp of an existing file? 
+(run the >touch command with an existing file)
+
+8.	How we can long list files and sort by time stamp?
+(ll -lt)
+
+9.	You got a file named /etc/hosts which was last modified about a week ago, you manager asks you to update the time stamp on that file to the current. What command will accomplish this task?
+(touch /etc/host)
+
+10.	How can we copy a file and directory while preserving the time stamp?
+(cp file name then the path)
+
+11.	How can we recursively show the contents of the directory and sub-directory in the form of long list?   
+(ll -iR)
+
+12.	How can I know that a file is a file or directory?
+(ll and if file starts with – that is file and directory starts with d)
+
+13.	 How can we create a directory? How to create a directory structure?
+mkdir directory name and mkdir -p for the strurture dir
+
+14.	What does -p flag mean in mkdir?
+it create certain dir as a parent dir
+ 
+15.	What are different ways to change the permissions of a file or directory?
+there are ways sombolic mode and abseloute mode
+
+16.	What are the different types of permissions in Linux?
+Read, write and execute
+
+17.	What is the numeric values that the system assigns to read, write and execute? 
+read=4, write=2 execute=1
+
+18.	What does chown -R do?
+change ownership recursively
+
+19.	What is meant by chmod 777?
+to give all permissions to owner, group and others
+
+20.	How can you change file/directory ownership? 
+chown owner name file/dir name
+
+21.	What command we use to change the group of a file?
+chgrp group name and file name 
+
+22.	Can you tell me the command used for changing permissions of a file or directory?
+chmod
+
+23.	What is head command and by default how many lines it show you?
+(head command to show top lines of the file and by default it shows first 10 lines)
+
+24.	What is tail command? How many lines tail command show by default?
+(to show the last 10 lines of the file)
+
+25.	What command do you use to know how many user accounts exist on the system?
+(>cat /etc/passwd)
+
+26.	How can you get the ID number of user and user name?
+(> id)
+
+27.	How to add a user to the system? What are files been modified while you create a user?
+(>useradd /etc/passwd)
+
+28.	What are files that get changed on adding a user?
+(/etc/passwd  and /etc/shadow)
+
+29.	Name the fields of /etc/passwd file.
+(user name, password, and user id, group id, home directory, user info, shell)
+
+30.	How can you know that user is allowed to write in the file or not?
+(>test -r file name)
+
+31.	What are the different modes of vi/ vim editor?
+replace mode, visual mode, insert mode, escape mode
+
+32.	How to quit vim without saving any change?
+:q!
+
+33.	How can you quit vim with saving the changes you made?
+:wq
+
+34.	Why we use “!” in addition to “:w” or “:wq”  to quit?
+to quit forcefully 
+
+35.	Let’s say the word “NYC” appears in a file a hundred times and you want to replace it with “NJ” at every place. What command would you use while you are inside a Vim editor?
+
+
+36.	Which file system contains systems configuration files?
+(/etc)
+
+37.	What is the purpose of /boot & /etc directory?
+/boot has all the files need to reboot; /etc contains configuration files
+
+38.	What does /proc file system contain?
+It contains all information about the running processes
+ 
+39.	/opt directory or file system contains what?
+It contains optional software packages and applications
+
+40.	Difference between echo > and echo >> ?
+echo > overwrite to the file
+echo >> appende to the file
+
+41.	How to read 4 different files and redirect the output into one larger file?
+(cat file1 file2 file3 file4 >>larger file)
+
+42.	What is the difference between appending to a file VS overriding a file, and how to accomplish them?
+appending means to add to the existing file echo >> and echo > over writing means to delete previous data to something new. 
+
+43.	For a given directory structure /tmp/Users/data you are required to delete the Users directory and everything underneath it (recursively without getting prompted).
+rm -rf /tmp/users
+
+44.	Say you ran a command, and it produced some “Permissions denied” error. You want to save the error ONLY to a file called errors.txt. How would you accomplish this?
+
+45.	Name any three filesystems that you are familiar with. 
+.xfs   nfs   ext3
+
+46.	How do you list the block devices?
+lsblk
+
+47.	How can you partition the disk?
+LVM 
+
+48.	What does df command do?
+It shows disk partition and hard disk mem
+
+49.	Following output is of what command?
+Filesystem               		   Size  Used   Avail    Use%     Mounted on
+/dev/mapper/centos-root   	     20G   13G  7.9G     61% 	/
+/dev/sdb1               		1014M   33M  982M   4% 		/data11
+/dev/sda1               		1014M  185M  830M  19% 	/boot
+/dev/sdb2               		1014M   33M  982M   4% 		/data12
+
+df -h
+
+50.	How would you make df command human readable? 
+with -h flag
+
+51.	What does du command do?
+it shows disk usage
+
+52.	How can we get the disk utilization of a /tmp directory?
+du -h /tmp
+
+53.	If you have more than 2TB disk then what utility would be your choice to partition the disk. 
+LVM
+
+54.	How do you scan a disk not showing up in lsblk command
+fdisk -l
+
+55.	In /dev/sdc1 --- what highlighted letters indicate?
+it indicates partition number and disk name
+
+56.	Makefile system using xfs file system on sdd1 partition.
+mkfs.xfs /dev/sdd1
+
+57.	Mount the sdd1 partiotion on /my_mountpoint.
+mount /dev/sdd1 /my mount point
+
+58.	Add entry in fstab file regarding mounting sdd1 partition on /my_mountpoint with xfs filesystem to make it boot persistent.
+vim /etc/fstab
+/dev/sdd1 /my_mountpoint xfs defaults 0 0 
+
+59.	Give name of device mounted on /boot mount point as shown in df command.
+Filesystem               		   Size  Used   Avail    Use%     Mounted on
+/dev/mapper/centos-root   	     20G   13G  7.9G     61% 	/
+/dev/sdb1               		1014M   33M  982M   4% 		/data11
+/dev/sda1               		1014M  185M  830M  19% 	/boot
+/dev/sdb2               		1014M   33M  982M   4% 		/data12
+
+/dev/sda1 
+
+60.	What command shows you this out put?
+df -h
+
+61.	Tell me how much space this disk is utilization on the disk?
+185M  or  19%
+
+62.	Let’ say /var is 95% is full how would you know what makes /var full? How would you delete the contents without delete the file? 
+cd /var
+ls -ltrS 	(it will show all files sorted by size)
+echo > filename (it will delete all file’s content)
+
+63.	Your manager send you an email that /var is filling up. Could you figure out what file/dir is using the most space of the /var filesystem? 
+ll -ltrsh /var
+
+64.	How can you tell me which directory is taking the most space in /var file system?
+ll -ltrsh /var
+
+65.	What is grep command?
+(used to specify a string or used to search a specified pettren in file)
+
+66.	How can I find a string “root” from /etc/passwd file?
+(cat /etc/passwd | grep root)
+
+67.	How many the minimum number of partitions are required in Linux?
+min 3  /boot,  /var,  swap  
+
+68.	What is metadata? Where is metadata of a file or directory stored?
+(metadata is a data about data, it stored in inode file sys)
+
+69.	What’s not included in the metadata?
+(original content of the file does not include in metadata)
+
+70.	How to list the metadata of a file or directory.
+(stat file or dir name)
+
+71.	What is inode number? how can we get the inode number of a file/ directory?
+(inode keeps the metadata of a file or dir   ls -i file or dir name or byusing stat command)
+ 
+72.	How can we get the inode numbers system wide?
+( ls -i and stat file or dir name )
+
+73.	How can you get the inode numbers on /boot file system are free?
+(ls -i	/boot)
+
+74.	Give me total inode number system wide.
+df -i	
+
+75.	How can you get the inode number of a particular file system.
+ls -i	file or dir name
+
+76.	What are the slowest and fastest components of the system?
+(slowest is hard disk and fastest are cpu and ram)
+
+77.	Why do we need RAM if we have the hard disk for storage?
+(ram is speed up the sys and make process fast)
+
+78.	When RAM gets full where does data go?
+(When RAM used 100% sys will use swap mem)
+
+79.	Where is swap space mounted?
+(/dev/swap)
+
+80.	How can we get the Swap space available in system?
+(free -h)
+
