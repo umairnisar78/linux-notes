@@ -3,7 +3,7 @@ www.linuxdmz.com
 http://google.com
 
 1.	What is the difference between su & su -?
-(su is switching to local user; su ñ is switching to root )
+(su is switching to local user; su ‚Äì is switching to root )
 
 2.	What information we can extract from the uptime command?
 (time and how long the server has been running, users, and load average)
@@ -36,7 +36,7 @@ http://google.com
 (ll -iR)
 
 12.	How can I know that a file is a file or directory?
-(ll and if file starts with ñ that is file and directory starts with d)
+(ll and if file starts with ‚Äì that is file and directory starts with d)
 
 13.	 How can we create a directory? How to create a directory structure?
 mkdir directory name and mkdir -p for the strurture dir
@@ -101,10 +101,10 @@ replace mode, visual mode, insert mode, escape mode
 33.	How can you quit vim with saving the changes you made?
 :wq
 
-34.	Why we use ì!î in addition to ì:wî or ì:wqî  to quit?
+34.	Why we use ‚Äú!‚Äù in addition to ‚Äú:w‚Äù or ‚Äú:wq‚Äù  to quit?
 to quit forcefully 
 
-35.	Letís say the word ìNYCî appears in a file a hundred times and you want to replace it with ìNJî at every place. What command would you use while you are inside a Vim editor?
+35.	Let‚Äôs say the word ‚ÄúNYC‚Äù appears in a file a hundred times and you want to replace it with ‚ÄúNJ‚Äù at every place. What command would you use while you are inside a Vim editor?
 
 
 36.	Which file system contains systems configuration files?
@@ -132,7 +132,7 @@ appending means to add to the existing file echo >> and echo > over writing mean
 43.	For a given directory structure /tmp/Users/data you are required to delete the Users directory and everything underneath it (recursively without getting prompted).
 rm -rf /tmp/users
 
-44.	Say you ran a command, and it produced some ìPermissions deniedî error. You want to save the error ONLY to a file called errors.txt. How would you accomplish this?
+44.	Say you ran a command, and it produced some ‚ÄúPermissions denied‚Äù error. You want to save the error ONLY to a file called errors.txt. How would you accomplish this?
 
 45.	Name any three filesystems that you are familiar with. 
 .xfs   nfs   ext3
@@ -198,10 +198,10 @@ df -h
 61.	Tell me how much space this disk is utilization on the disk?
 185M  or  19%
 
-62.	Letí say /var is 95% is full how would you know what makes /var full? How would you delete the contents without delete the file? 
+62.	Let‚Äô say /var is 95% is full how would you know what makes /var full? How would you delete the contents without delete the file? 
 cd /var
 ls -ltrS 	(it will show all files sorted by size)
-echo > filename (it will delete all fileís content)
+echo > filename (it will delete all file‚Äôs content)
 
 63.	Your manager send you an email that /var is filling up. Could you figure out what file/dir is using the most space of the /var filesystem? 
 ll -ltrsh /var
@@ -212,7 +212,7 @@ ll -ltrsh /var
 65.	What is grep command?
 (used to specify a string or used to search a specified pettren in file)
 
-66.	How can I find a string ìrootî from /etc/passwd file?
+66.	How can I find a string ‚Äúroot‚Äù from /etc/passwd file?
 (cat /etc/passwd | grep root)
 
 67.	How many the minimum number of partitions are required in Linux?
@@ -221,7 +221,7 @@ min 3  /boot,  /var,  swap
 68.	What is metadata? Where is metadata of a file or directory stored?
 (metadata is a data about data, it stored in inode file sys)
 
-69.	Whatís not included in the metadata?
+69.	What‚Äôs not included in the metadata?
 (original content of the file does not include in metadata)
 
 70.	How to list the metadata of a file or directory.
@@ -257,3 +257,4 @@ ls -i	file or dir name
 80.	How can we get the Swap space available in system?
 (free -h)
 
+learing git
