@@ -1,0 +1,447 @@
+====================== Linux Notes======														======Started on 07/06/2024=====			
+
+======================Server Build======
+> disk partitioning 
+/boot 500mb
+swap 500mb
+/var 2GB
+/ leave it an empty
+next step:
+> vim /etc/sysconfig/network-scripts/ifcfg-enp0s3	(configuration path)
+>:wq	(to save and quit the file)
+> systemctl restart network	(to restart the network)
+
+=======================Work around=======
+> su - 	(to switch as a root user)
+> ping	(to check the connectivity)
+> shutdown	(to shutdown within a min)
+> shutdown now	(shutdown instantly)
+> hostname -I	(to check the ip address)
+> hostname 	(to check the hostname)
+> hostnamectl set-hostname any name
+> bash		(to refresh the changes)
+> mkdir		(to create diractory)
+> mkdir -p	(to create parent diractory)
+> rmdir		(to remove empty dir)
+> rm -rf	(to rome dir having data)
+> touch		(to create file)
+> clear		(to clear the screen)
+> history	(to check the all running commands)
+> ll		(to check the long list )
+> ll -ltr	(to chek the file as long list to see the most recent file on top)
+> ls		(to check as a short list)
+> vim		(to edit any file in insert mode)
+> cat		(to check what we have in the file)
+> cd 		(to change the dir)
+> cd ..		(to go 1 dir back)
+> chown name and file or dirname needs to be change	(to change the ownership )
+> chgrp newname and then dir name needs to be change 	(to change the group)
+
+> head		(to check first lines of the file)
+> tail		(to check the last lines of the file)
+> alias		(alias new name='path' to write the full command of the nick  to make a nick or new name for the path)
+> cp		(to copy the file)
+> mv		(to move he file from source to destination)
+> uptime	(to check the system how long been running, users and load average)
+> w		(detailed info of the system)
+> uname
+> uname	-r	(to check kernel version)
+> uname -a	(to check all the information)
+> yum -y update kernel (to update the kernel)
+> wc -l		(to show how many lines in a file)
+> who		(it will tell which user you are logged in)
+> whoami	(it will tell which user you are logged in)
+> diff 		(to check the difference between 2)
+
+r=4 w=2 x=1	(7 for all 3 permissions)
+
+> chmod		(to change the permissions)
+> echo $?	(to check the recent command executed correctly or not)
+> echo "" >> filename	(>> sign will append)
+> echo "" > filename	(> overwrite)
+> init 0		(to shutdown)
+> init 6		(reboot)
+> scp (file name root@ipaddress where to copy:/tmp)
+> rsync (file name root@ipaddress where to copy:/tmp)
+> grep "string" file name
+> grep -i "string" file name (i=case senstivaity)
+> grep -v "string" file name (v means except that string)
+> crontab -e *(min) *(hrs) *(date) *(month) *(week day) 	(type command name which need to be run)
+> crontab -l 	(to see the schedule)
+> crontab -r	(to cancel the schedule)
+> crontab -e -u user name	(to set task for local user)
+> crontab -e 	(* * * * * df -h > /tmp/file name)
+
+(with > cat /etc/passwd)           
+if you see user id starting with 1000 it means you have created it and if you see id starting with 0-999 it means sys created itself
+
+====================ssh========
+> ssh-keygen
+> ssh-copy-id ipaddress of the server which you want to access
+> ssh ipaddress
+> cd .ssh	(all dir starting with . are hidden dir)
+
+===================yum========
+> yum -y install package name
+> yum -y update package name
+> yum -y remove package name
+> yum repolist	(to check respositary list)
+> yum history	(to check the history of the packeges wih id)
+> yum history info id number	
+> yum history undo id number (to uninstall the package)
+
+==================vim========
+Escape mode
+gg (to go to the first line)
+shiftg 	(go to the last line)
+yy	(to copy)
+p	(paste)
+dd	(to delete)
+w	(save)
+q	(quit)
+!	(to do it forcefully)
+o	(enter into insert mode with new line)
+
+=====================link========
+> ln -s	(path of the file  space then  link name)
+> unlink link name (to unlink)
+> ln 	(to make a link of the file a replica)
+
+====================tar========
+> tar -cvzxf my.tar files name	(x=extract, c=create, z=zip, v=verbose)
+> tar -cf tarfilename.tar <file names> (to create tar file)
+> tar -cjvf tarfilename.tar <dir name> (to create tar file with very low size)
+> tar -tf tarfilename.tar	(to check the list of files inside tar file)
+> tar -xf tarfilename.tar	(to extract the tar file)
+> scp <file name> <ip of other server> (to transfer file to other server through scp)
+> rsync <file name> <ip of other server> (to transfer file to other server through rsync)
+
+
+=================user management====
+> useradd	(to add user)
+> passwd	(to assign password)
+> userdel	(to delete the user)
+> id		(to check the user exsist or not)
+> cat /etc/passwd	(to check user info)
+> cat /etc/shadow	(it contains password )
+
+
+=======Logical Volume Manager=========
+> add new disk
+> lsblk		(to list the block devices)
+> pvcreate /dev/diskname sdb, sdc etc...
+> vgcreate vgname /dev/diskname
+> lvcreate -n lvname -L +size(how much you want to assign) vgname
+> mkfs.xfs /dev/vgname/lvname	(to create a file system)
+> mkdir /dirname
+> vim /etc/fstab  (to make file sys boot persistent)
+this command will lead to vim them edit
+> /dir/vgname/lvname /dirname xfs defaults 0 0 (save and quit)
+> mount /dirname
+> lsblk
+
+how to extend the disk size:
+ lsblk
+> df -h 
+> vgs		(to check all vgs)
+>  pvcreate /dev/sdc
+> vgextend name of the vg needs to be extend /dev/name of the disk from  
+> lvextend -l +100%FREE /dev/vgname/lvname -r
+> lvextend -L +size /dev/vgname/lvname
+how to reduce the disk size:
+> lvreduce -L -size /dev/vgname/lvname
+
+
+
+==========Process=============
+
+
+
+
+
+
+
+==============Network File System (nfs)================
+host configuration:
+
+  >rpm -qa nfs-utils
+  >systemctl status nfs-server
+  >mkdir /filename
+  >ll /
+  >vim /etc/exports
+  
+  >firewall-cmd --permanent --add-port=2049/tcp
+  >firewall-cmd --permanent --add-port=2049/udp
+  >firewall-cmd --permanent --add-port=111/tcp
+  >firewall-cmd --permanent --add-port=111/udp
+  >firewall-cmd --permanent --add-service=mountd
+  >firewall-cmd --permanent --add-service=rpc-bind
+  >firewall-cmd --reload
+  >exportfs -a
+
+
+client configuration:
+
+  >showmount -e 192.168.1.201
+  >mkdir /nfs-test2
+  >vim /etc/fstab
+  >systemctl daemon-reload
+  >mount /nfs-test2/
+  >cd /nfs-test2/
+  >touch firstfile
+
+
+
+==========kickstart===================
+Q- What is kickstart in Linux ?
+A kickstart file is a simple text file that contains configuration information for a Red Hat Enterprise Linux installation. The system reads this configuration information at boot time and carries out the installation process without any further input from you.
+
+> yum -y install pykickstart
+> yum -y install httpd
+> systemctl enable httpd --now (start and enable the httpd)
+> firewall-cmd --add-service=http --permanent
+> firewall-cmd --add-service=https --permanent
+> firewall-cmd --reload 
+> setenforce 0 (to make permissive 1=enforcing and 0=permissive)
+> getenforce 1 (to change the mode)
+> cp anaconda.ks.cfg (newname)
+> mv ks.cfg /var/www/html/
+> cd /var/www/html
+> chmod 644 ks.cfg
+> ksvalidator ks.cfg
+-------------------------------
+> vim ks.cfg
+
+# Network information
+network --bootproto=static --device=enp0s3 --onboot=on --ipv6=auto --no-activate --ip=192.168.1.102 --netmask=255.255.255.0 --gateway=192.168.1.1 --nameserver=192.168.1.1
+network  --hostname=vm102
+
+
+# Reboot after installation
+reboot
+eula --agreed
+
+--------------------------
+
+spin a new machine before booting hit tab to edit:
+
+inst.ks=http://192.168.1.101/ks.cfg
+
+after spinning new vm go to setting and remove image 
+
+
+----------------------
+
+--------network setting in manual phase-----------
+
+BOOTPROTO=static
+ONBOOT=yes
+IPADDR=192.168.1.202
+NETMASK=255.255.255.0
+GATEWAY=192.168.1.1
+DNS=192.168.1.1
+DNS1=8.8.8.8
+
+
+================git====================
+1.	install git package yum -y install git
+
+ > ssh-keygen
+ > cd .ssh
+ > ll
+ > cat id_rsa.pub
+ > cd
+ 
+ > ll
+ > cd file1/
+ > ll
+ > git config --global user.email "unhundal@gmail.com"
+ > git config --global user.name "umairnisar78"
+ 
+ > git clone git@github.com:umairnisar78/file1.git
+ 
+ > vim file2
+ > git add .
+ > git commit -m "test"
+ > git push
+ > cat file2
+ > git pull
+ > git branch -rv (to list all branches)
+                                                  											  
+												 
+
+=================ansible=============================
+1.	install ansible package yum -y install ansible
+
+Master>>>Slave
+Master=Ansible Server
+Slave=client
+
+Managed Server>>>
+
+-----------------
+Ad-hoc (Linux command can be run BUT no idempotency; can not be used for configuration management; ad-hoc commands starts with ansible -a "")
+Module (just executing 1 command)
+Playbook (more than 1 module called playbook; its a combination of different commands)
+-----------------
+
+>ansible 
+>cd ansible
+>cd /etc/ansible
+> ll
+> vim hosts
+> cd
+> ansible it -m ping
+> ssh 192.168.1.201
+> ssh-copy-id
+> ssh-copy-id 192.168.1.202
+> ssh 192.168.1.201
+> ssh-copy-id 192.168.1.201
+> ssh 192.168.1.201
+> ansible it -m ping
+
+> ansible it -m file -a "path=/tmp/ffile1 state=touch"
+
+>  ansible-doc (to check the manual pages of ansible; /EXA)
+-----------------------modules------------------------
+> ansible it(it is a filename) -m ping
+> ansible it -m file -a "path=/tmp/ffile1 state=touch"
+> ansible it -m shell -a "shutdown now"
+> ansible it -m copy
+> ansible it -m service
+> ansible it -m lineinfile	(to add any line or content in a file)
+> ansible it -m lineinfile -a "path=/etc/test1 line=content create=yes" (to add any line or content in a file)
+> ansible it -m lineinfile -a "path=/etc/test1 regexp=content state=absent" (to use this command to remove content of the file)
+> ansible it -m user
+> ansible it -m yum
+
+
+idempotent
+-----------------------Playbook-----------------------
+indentation
+
+vim file with .yml 
+_________________________
+> vim myplaybook.yml
+---
+- hosts: all
+  tasks:
+    - name: installing httpd
+      yum:
+        name: httpd
+        state: present
+_______________________
+> ansible-playbook myplaybook.yml --syntax (to check the error of the syntax)
+> ansible-playbook myplaybook.yml  (to run the playbook)
+> ansible-playbook myplaybook.yml -C (to run the playbook with dry run mood; it means show you before execution)
+
+
+=========================RAID=======
+
+
+
+====================== =logs=======
+
+
+
+
+=================docker=================
+https://docs.docker.com/engine/install/rhel/
+Install on RHEL8
+
+>yum -y remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine podman runc
+
+>yum install -y yum-utils
+
+>yum-config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+
+>yum -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+>systemctl start docker && sudo systemctl enable docker
+
+>docker ps
+
+>docker images
+
+>docker pull httpd
+
+>docker pull mysql
+
+>docker run -dit --restart always -p8080:80 --name linuxdmz-web -v /tmp/webpg:/usr/local/apache2/htdocs httpd
+
+
+>docker ps -a	(to check docker id)
+
+>docker exec -it 96f5deb6dadf /bin/bash
+
+> ls -al
+cd htdocs
+
+>docker system prune -a
+
+
+>cd /tmp/webpg/
+
+>vim index.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==============How to break root passwd?==============
+
+When we start the machine before coming on up state hit 'e' on keyborad.
+
+Go to the line starts with linux > convert 'ro' into 'rw' then press end key
+
+Now type init=/sysroot/bin/sh. after quit 
+
+ctrl+x (to start)
+
+now we are in terminal mood;
+
+mount -o remount,rw /sysroot
+
+chroot /sysroot
+
+passwd
+
+type new passwd
+
+confirm new passwd
+
+touch /.autorelabel (to reload)
+
+exit
+
+reboot
+
+==============
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
