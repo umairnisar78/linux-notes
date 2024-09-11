@@ -1,0 +1,408 @@
+
+www.linuxdmz.com
+==================Evaluation-2=================
+
+Process: 
+1. 	What is Process?
+	Anything running in the system is a process
+
+2. 	What are the different states of the Linux processes?
+	Running, sleeping, stop and zombie
+
+3. 	What are interactive processes?
+	Interactive processes are process to be executed or initiated by the user or programmer 
+
+4. 	What is a daemon process?
+	Processes that run in the background and only proceed when it is said to be (i.e httpd, sshd)
+5. 	How can we send a process in the background?
+	There are 2 ways
+	> bg process name
+	> process name and &
+
+6. 	How can we bring a process in the foreground? 
+	>fg
+7. 	What command do you use to check background processes?
+	>jobs
+
+8. What does ps -aux command do?
+
+9. How can we kill the background process?
+>kill -9 process ID
+> pkill -9 process name
+
+10. How to list all processes? 
+>ps 
+
+11. Show all the running processes?
+> ps
+
+12. Command to list a process along with child processes.
+>ps -ef
+
+13. How can you kill a process by name?
+>pkill -9 process name
+
+14. What is the difference between SIGTERM and SIGKILL signals?
+Sigterm=-15(to kill a process gracefully)
+sigkill= -9 (to kill forcefully)
+
+15. What signal keep the process continue even shell exits?
+>nohup processname & 
+
+16. What is zombie process?
+Headless process a zombie process in linux is terminated child process that remains in the system’s process table while waiting for it’s parent process to collect its exit status
+
+17. What is the difference between process and thread?
+Process= a program in execution 
+Thread= a part of process
+
+18. How to search the “vi” process from all running processes?
+ps -ef | grep vi
+
+19. How to get the total number of processes running in the system?
+>top (table of precesses)
+
+20. What is difference between -15 and -9 signals?
+-15 = kill gracefully
+-9= kill forcefully
+
+21. Kill the process number 1200?
+>kill -9 1200
+
+22. How to kill a process gracefully? What signal is invoked by -15?
+>kill -15 pid; -15 invoked a signal sigterm
+
+23. What signal to use to kill a process abruptly?
+-9
+
+24. What is the purpose of the pkill command?
+To kill a process by its name
+
+25. How can we list all the processes belonging to user John?
+>ps -ef | grep John
+
+26. What is the command used to manage the services?
+>systemctl
+
+27. How to list all the services in Linux System?
+>cat /etc/services
+28. What is a unit file?
+A unit file is a config file used by systemd to manage and control system services, sockets, devices, and targets
+29. How can we count the number of services in the Linux system?
+>wc -l /etc/services
+30. How can we get status of service?
+>systemctl status servicename
+31. How can we figure out whether a service is active or not?
+>systemctl status servicename
+32. How to start service?
+>systemctl start servicename
+
+33. How to restart the service?
+>systemctl restart servicename
+
+34. How to reload service?
+>systemctl reload servicename
+
+35. How to stop service?
+>systemctl stop servicename
+
+36. How to make service boot persistent?
+     >systemctl enable servicename
+
+37. How to check whether the service is enabled or disabled?
+>systemctl status servicename
+
+38. How to prevent the service from starting at the boot time?
+>systemctl disable servicename
+
+39. What is the difference between restarting and reloading a service?
+	Restarting= shutdown the services entirely and starting again
+	Reloading= the service to reload its config files but keep the same process running
+
+40. What is the difference between disabling and stopping a service?
+	Disabling= it will no longer start service when the system boot
+	Stopping= it will stop the service 
+
+41. How to enable and start a service simultaneously?
+	Systemctl enable service name --now
+42. How to disable and stop a service simultaneously?
+	Systemctl disable service name --now
+
+43. What is difference between masked and static services status?
+	Masking a service makes it permanetaly unuseable unless we unmask it
+	Static means the unit file lacks an install section required to enable a unit (statis services are usually dependencies of other services and controlled automatically )
+
+ ============Boot Process=============
+44. What Linux Booting Process? Give high-level steps.
+45. What is a Boot loader? Give me the name of the most recent bootloaders Linux is using.
+46. What is the difference between runlevel and targets?
+47. What are different run levels in Linux System?
+48. What is the configuration file of targets in RHEL 7?
+49. Mention two commands to check the runlevel.
+50. How runlevel 2 and runlevel 3 differ from each other?
+51. What is the difference between Runlevel 3 & runlevel 5?
+52. What command is used to change the runlevel from runlevel 5 to runlevel 3?
+53. How to set a run level by default? 
+
+=============Link Management==============
+54. What is soft link/ symlink?
+	A short cut to a file or dir
+
+55. Why symlinks are needed?
+	To access a file easily 
+
+56. If you delete or relocate the source file what will be the effect on symlink?
+	It will be a broken link
+
+57. How to delete a soft link?
+	>unlink linkname
+
+58. What is a broken link?
+	If we relocate or rename the source file then it will be broken link
+
+59. What is unlink command and its syntax?
+	>unlink linkname
+
+60. Difference between rm and unlink commands to break link?
+	Rm = to delete the source file
+	Unlink= to delete a link
+
+61. How to create soft link?
+	>ln -s path to the file then link name
+
+62. How we can overwrite soft link?
+	>ln -sf path to the file then link name
+
+64. How we can create hard link?
+	>ln path to the file then link name
+
+65. How we can find the hardlink?
+    >find link path
+     
+66. What is the lost+found directory in Linux?
+	To store any files that you have changed that no longer exist on the server 
+
+67. What is difference between hard link and soft link?
+	Hard link is the replica of the file and soft link is a short cut of the file
+	
+==============Networking==============
+68. What are the basic components of LAN?
+	A local area network comprises cables access points, switches, routers, and other components that enable devices to connect with internal server and web server. 
+
+69. What is IP address?
+	IP means internet protocol that is a unique identifying number assigned to every device connected to the internet. 
+
+70. What is gateway?
+	A default gateway is the IP address of the device on a network through which a subnet will communicate with other devices across the network.
+
+71. What is purpose of DNS server?
+	Domain Name System: DNS resolve domain name to their respective ip addresses
+
+72. What is DHCP server?
+	Dynamic Host Configuration Protocol; A DHCP server is a network server that automatically provides an assigned IP addresses default gateway other network parameters to client device.
+
+73. What is NAT service?
+	Network Address Translation; Its way to map multiple private addresses inside a local network to public IP address before transferring information onto the internet i.e router
+
+74. What is dynamic routing protocol?
+	A dynamic routing protocol is used in networking to automatically find an maintain routers within a network
+
+75. What TCP/ IP setting is required for a workstation to work? 
+	Transmission Control Protocol; It requires BOOTPROTO=static ONBOOT=yes IPADDR= ,NETMASK, GATEWAY, DNS, DNS1 in /etc/sysconfig/network-srcipts/ifcfg-enp0s3
+
+76. What is Subnet Mask?
+	A subnet mask is a 32-bit number created by setting host bits to all 0s and setting network bits to all 1s. In this way, the subnet mask separates the IP address into the network and host addresses. The “255” address is always assigned to a broadcast address, and the “0” address is always assigned to a network address.
+
+77. What is one ip address that never changes?
+    Static IPAddress
+
+78. How to get the IP address of the remote hostname?
+	>hostname -I
+79. What is reverse lookup of the 31.13.71.36?
+
+80. What is purpose of loopback address?
+
+81. What configuration file for any interface?
+	/etc/sysconfig/network-scripts/ifcfg-enp0s3
+
+81.What is DNS configuration file?
+	>/etc/resolv.conf
+
+82.What is the purpose of /etc/hosts?
+	To resolve hostname
+
+83. Which file specifies how the system should switch between different name service providers?
+	> /etc/nsswitch.conf
+
+84. What is the difference between the switch and the router?
+	A router's main objective is to establish a connection between various networks in a simultaneous manner. A switch's main objective is to establish a simultaneous connection among various devices. 
+
+85. Mention the path of the file in which networking configuration (interface configuration), is stored?
+	/etc/sysconfig/network-scripts/ifcfg-enp0s3
+
+86. How we can check that port is listening or not on local server?
+	netstat -tunap | grep portnumber
+
+87. What is ping used for?
+	To check connectivity
+
+88. How we can check that port is listening or not on remote server?
+	netstat -tunap | grep portnumber
+
+89. How can you check that cable of a server is connected or not?
+	> nmcli (network managing command line interface)
+
+90. Minimum requirement for remote connection?
+	we need ssh connection
+
+91. What is command to list the routing table?
+	> netstat -rn ()
+92. What host-based firewall is in RHEL 6 & RHEL 7?
+	>iptables firewall (REHL 6)
+	>firewalld (REHL 7)
+
+93. What is NIC? How can we list the NICs?
+	Network interface card; ifconfig (to check the list)
+94. Network trouble shooting steps?
+	Check network configuration file
+
+==================TAR================
+
+95.	What is tar ball?
+	(tar means tape archives use to compile multiple files into single file)
+
+96. What is archiving?
+	(Compressing files into a single file)
+97. What is the syntax of the Tar command? Can you explain the flags used in tar command?
+	>tar -cvf filename.tar file names
+	c=create
+	v=verbose
+	z=zip
+	f=file
+
+98. What is compressing a data? 
+	It is a process in which we reduce the size of data in such a way that it takes less space
+
+99. You want to compress and archive the /data file system. What command would you use to archive and compress /data in one shot?
+	Tar -cvzf  data.tar 
+100. What are operating modes of tar utility?
+	Create, zip, extracted, delete
+
+101. How we can know the type of file?
+	Through file name i.e. txt, pdf, zip etc…
+
+
+================Misc=============
+102. What is the structure of Linux? Or What are the core parts of the Linux OS?
+		Kernel 
+		Shell
+		Program
+
+103. What is the difference between shell and Kernel?
+		Shell communicates between user and kernel
+		Kernel communicates between shell and hardware. It is a core part of the linux OS.
+
+104. What’s the command to check the user’s default shell? OR How to check what shell you are working on?  
+		> echo $SHELL
+
+105. How can you find out the kernel version of Linux system?
+		> uname -r	(r= running version)
+	
+106. How can we check the release version of Linux OS?
+		>cat /etc/os-release (complete properties of OS)
+
+107. What are binaries and where are they stored?
+		Binaries are executable files used to run program on the system; they are stored in
+		/usr/bin
+
+108. Where are the system binaries kept?
+		/usr/sbin
+
+109. What is the difference between /bin and /sbin directories?
+		/bin contains static files require to boot a machine; /sbin are system binaries 
+
+110. Command to read system live logs? 
+		>tail -f /var/log/secure
+111. What is Path to system error logs?
+		/var/log
+112. Difference between /var/log/secure and /var/log/messages.
+        /var/log/secure are authentication logs
+		/var/log/messages are global messages
+
+113. What information /var/log/dmesg contains?
+		Information about sys boot process including messages generted by kernel.
+114. Where can we find kernel buffer messages?
+		/var/log/dmessages
+
+115. How can you find the “invalid user” in /var/log/secure?
+		>cat /var/log/secure | grep "invalid user"
+
+116. What is path to the directory that contains environmental files?
+		/etc/profile
+117. What command we use to find system variables? How to set the PATH env variable.
+		>echo $(variable name)
+
+118. If you are trying to access cnn.com how would you get ip address?
+		>nslookup cnn.com
+119. Commands to check OS release? Kernel version? Uptime? 
+		/etc/os-release
+		>uname -r
+		>uptime
+
+120. Command to check when the last was rebooted?
+		>who -b
+
+121. /proc file importance? Size? 
+		It contains all process related files. It has 0 size as it is virtual file system.
+
+122. Major differences between RHEL 6 and RHEL 7?
+		RHEL 6		RHEL 7		2.6.32 Kernel version		3.0.10 Kernel version		Boot time 40 seconds		20 seconds		File system; e2fsck		File system; xsf		Size of partition ; 50TB		Size of partition; 500TB
+123. Find all messages related to “kernel” from system logs and dump them into /tmp/kernel-logs
+		>grep kernel /var/log/messages > /tmp/kernel-logs
+
+124. What is $0, $? and $# in shell scripting? 
+		$0=shell name, $?=it used to check previous command is executed correct or incorrect, $ 
+
+125. Command to add user john? Important files related to user accounts? 
+		>adduser john; /etc/passwd; /etc/shadow; /etc/group
+
+126. Command to change ownership and permissions such as rwx? 
+		>chown 
+		>chmod +rwx 777
+
+127. How can we obtain logs that pertain to sshd from Security log file/login logs/var/log/messages?
+		>cat /var/log/messages | grep -i sshd
+
+128. How can we extract all the lines that contain the word “error|ERROR”in them?
+		>cat /var/log/messages | grep -i error
+
+129. How can you find the pattern “root | failed “ in the /var/log/secure file?
+		>cat /var/log/secure | grep -i root | failed
+
+130. How can we extract all the lines that contain the word “error|ERROR” in /var/log/messages?
+		>cat /var/log/messages | grep -i error
+
+131. How can we get/see the real time updates in /var/log/secure file?
+		>tail -f /var/log/secure
+
+132. How to grep all the lines that contain the string “root” in them, and 2 lines After each line, and 2 lines before the targeted string line from “/etc/passwd”?
+		grep -A2 -B2 root /etc/passwd
+
+133. How can we find all the lines in /etc/passwd that do not contain the string “root” from “/etc/passwd” file?
+		grep -v root /etc/passwd
+
+134. A Colleague of your's want to see all the processes running on your system, but excluding all the processes that are owned by root. How can you send him this information in file?
+	>ps -aux | grep -v root
+
+
+
+
+
+
+
+
+
+
+
+
+
