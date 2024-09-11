@@ -50,13 +50,13 @@ sigkill= -9 (to kill forcefully)
 >nohup processname & 
 
 16. What is zombie process?
-Headless process a zombie process in linux is terminated child process that remains in the system’s process table while waiting for it’s parent process to collect its exit status
+Headless process a zombie process in linux is terminated child process that remains in the systemâ€™s process table while waiting for itâ€™s parent process to collect its exit status
 
 17. What is the difference between process and thread?
 Process= a program in execution 
 Thread= a part of process
 
-18. How to search the “vi” process from all running processes?
+18. How to search the â€œviâ€ process from all running processes?
 ps -ef | grep vi
 
 19. How to get the total number of processes running in the system?
@@ -211,7 +211,7 @@ A unit file is a config file used by systemd to manage and control system servic
 	Transmission Control Protocol; It requires BOOTPROTO=static ONBOOT=yes IPADDR= ,NETMASK, GATEWAY, DNS, DNS1 in /etc/sysconfig/network-srcipts/ifcfg-enp0s3
 
 76. What is Subnet Mask?
-	A subnet mask is a 32-bit number created by setting host bits to all 0s and setting network bits to all 1s. In this way, the subnet mask separates the IP address into the network and host addresses. The “255” address is always assigned to a broadcast address, and the “0” address is always assigned to a network address.
+	A subnet mask isÂ a 32-bit number created by setting host bits to all 0s and setting network bits to all 1s. In this way, the subnet mask separates the IP address into the network and host addresses. The â€œ255â€ address is always assigned to a broadcast address, and the â€œ0â€ address is always assigned to aÂ network address.
 
 77. What is one ip address that never changes?
     Static IPAddress
@@ -289,7 +289,7 @@ A unit file is a config file used by systemd to manage and control system servic
 	Create, zip, extracted, delete
 
 101. How we can know the type of file?
-	Through file name i.e. txt, pdf, zip etc…
+	Through file name i.e. txt, pdf, zip etcâ€¦
 
 
 ================Misc=============
@@ -302,7 +302,7 @@ A unit file is a config file used by systemd to manage and control system servic
 		Shell communicates between user and kernel
 		Kernel communicates between shell and hardware. It is a core part of the linux OS.
 
-104. What’s the command to check the user’s default shell? OR How to check what shell you are working on?  
+104. Whatâ€™s the command to check the userâ€™s default shell? OR How to check what shell you are working on?  
 		> echo $SHELL
 
 105. How can you find out the kernel version of Linux system?
@@ -334,7 +334,7 @@ A unit file is a config file used by systemd to manage and control system servic
 114. Where can we find kernel buffer messages?
 		/var/log/dmessages
 
-115. How can you find the “invalid user” in /var/log/secure?
+115. How can you find the â€œinvalid userâ€ in /var/log/secure?
 		>cat /var/log/secure | grep "invalid user"
 
 116. What is path to the directory that contains environmental files?
@@ -356,8 +356,18 @@ A unit file is a config file used by systemd to manage and control system servic
 		It contains all process related files. It has 0 size as it is virtual file system.
 
 122. Major differences between RHEL 6 and RHEL 7?
-		RHEL 6		RHEL 7		2.6.32 Kernel version		3.0.10 Kernel version		Boot time 40 seconds		20 seconds		File system; e2fsck		File system; xsf		Size of partition ; 50TB		Size of partition; 500TB
-123. Find all messages related to “kernel” from system logs and dump them into /tmp/kernel-logs
+		RHEL 6
+		RHEL 7
+		2.6.32 Kernel version
+		3.0.10 Kernel version
+		Boot time 40 seconds
+		20 seconds
+		File system; e2fsck
+		File system; xsf
+		Size of partition ; 50TB
+		Size of partition; 500TB
+
+123. Find all messages related to â€œkernelâ€ from system logs and dump them into /tmp/kernel-logs
 		>grep kernel /var/log/messages > /tmp/kernel-logs
 
 124. What is $0, $? and $# in shell scripting? 
@@ -373,28 +383,28 @@ A unit file is a config file used by systemd to manage and control system servic
 127. How can we obtain logs that pertain to sshd from Security log file/login logs/var/log/messages?
 		>cat /var/log/messages | grep -i sshd
 
-128. How can we extract all the lines that contain the word “error|ERROR”in them?
+128. How can we extract all the lines that contain the word â€œerror|ERRORâ€in them?
 		>cat /var/log/messages | grep -i error
 
-129. How can you find the pattern “root | failed “ in the /var/log/secure file?
+129. How can you find the pattern â€œroot | failed â€œ in the /var/log/secure file?
 		>cat /var/log/secure | grep -i root | failed
 
-130. How can we extract all the lines that contain the word “error|ERROR” in /var/log/messages?
+130. How can we extract all the lines that contain the word â€œerror|ERRORâ€ in /var/log/messages?
 		>cat /var/log/messages | grep -i error
 
 131. How can we get/see the real time updates in /var/log/secure file?
 		>tail -f /var/log/secure
 
-132. How to grep all the lines that contain the string “root” in them, and 2 lines After each line, and 2 lines before the targeted string line from “/etc/passwd”?
+132. How to grep all the lines that contain the string â€œrootâ€ in them, and 2 lines After each line, and 2 lines before the targeted string line from â€œ/etc/passwdâ€?
 		grep -A2 -B2 root /etc/passwd
 
-133. How can we find all the lines in /etc/passwd that do not contain the string “root” from “/etc/passwd” file?
+133. How can we find all the lines in /etc/passwd that do not contain the string â€œrootâ€ from â€œ/etc/passwdâ€ file?
 		grep -v root /etc/passwd
 
 134. A Colleague of your's want to see all the processes running on your system, but excluding all the processes that are owned by root. How can you send him this information in file?
 	>ps -aux | grep -v root
 
-
+Sheet 2 solved
 
 
 
